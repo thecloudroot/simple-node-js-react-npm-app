@@ -8,7 +8,7 @@ echo 'correctly bundles React in production mode and optimizes the build for'
 echo 'the best performance.'
 set -x
 npm run build
-set +x
+set -x
 
 echo 'The following "npm" command runs your Node.js/React application in'
 echo 'development mode and makes the application available for web browsing.'
@@ -22,7 +22,7 @@ set -x
 npm start &
 sleep 1
 echo $! > .pidfile
-set +x
+set -x
 
 echo 'Now...'
 echo 'Visit http://localhost:3000 to see your Node.js/React application in action.'
