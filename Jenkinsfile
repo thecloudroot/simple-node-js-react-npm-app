@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:lts-stretch'
+            image 'node:6-alpine'
             args '-p 3000:3000'
         }
     }
@@ -21,10 +21,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'npm run build'
-                sh 'ls -la'
-                sh 'ls -la ./jenkins/scripts/'
-                sh 'sh ./jenkins/scripts/deliver.sh'
+                sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
