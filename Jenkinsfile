@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'npm clean-install'
             }
         }
         stage('Test') {
@@ -21,8 +21,8 @@ pipeline {
         }
         stage('Deliver') {
             steps {
+                sh 'npm run build'
                 sh 'ls -la'
-                sh 'env'
                 sh 'ls -la ./jenkins/scripts/'
                 sh 'sh ./jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
