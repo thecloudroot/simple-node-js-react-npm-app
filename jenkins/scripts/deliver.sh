@@ -5,6 +5,7 @@ echo '"/var/jenkins_home/workspace/simple-node-js-react-app" directory),'
 echo 'correctly bundles React in production mode and optimizes the build for'
 echo 'the best performance.'
 #set -x
+npm clean-install
 npm run build
 npm install -g serve
 #set +x
