@@ -24,7 +24,7 @@ pipeline {
                 sh 'ls -la'
                 sh 'env'
                 sh 'ls -la ./jenkins/scripts/'
-                sh 'bash ./jenkins/scripts/deliver.sh'
+                sh 'sh ./jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
                 sh './jenkins/scripts/kill.sh'
             }
